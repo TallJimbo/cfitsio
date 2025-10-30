@@ -109,7 +109,9 @@ SERVICES PROVIDED HEREUNDER."
     ||  defined(__ia64__)   \
     ||  defined(__x86_64__) \
 */
-#if (defined(__alpha) && ( defined(__unix__) || defined(__NetBSD__) )) \
+#if (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 199901L)  /* C99 */
+#   define USE_LL_SUFFIX 1
+#elif (defined(__alpha) && ( defined(__unix__) || defined(__NetBSD__) )) \
     ||  defined(__sparcv9) || (defined(__sparc__) && defined(__arch64__))  \
     ||  defined(__powerpc64__) || defined(__64BIT__) \
     ||  (defined(_MIPS_SZLONG) &&  _MIPS_SZLONG == 64) \
